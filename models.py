@@ -15,8 +15,14 @@ class Dog(models.Model):
         return self.name
 
 class Breed(models.Model):
+    SIZE_BREED = {
+	"T": "TINY",
+	"S": "SMALL",
+	"M": "MEDIUM",
+	"L": "LARGE",
+    }
     name = models.CharField(max_length=100)
-    size = models.CharField(max_length=100)
+    size = models.CharField(max_length=100, choices=SIZE_BREED)
     friendliness = models.IntegerField()
     trainability = models.IntegerField()
     sheddingamount = models.IntegerField()
