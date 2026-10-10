@@ -23,10 +23,10 @@ class Breed(models.Model):
     }
     name = models.CharField(max_length=100)
     size = models.CharField(max_length=100, choices=SIZE_BREED)
-    friendliness = models.IntegerField()
-    trainability = models.IntegerField()
-    sheddingamount = models.IntegerField()
-    exerciseneeds = models.IntegerField()
+    friendliness = models.IntegerField(validators=[MinValueValidator(1),MaxValueValidator(5)])
+    trainability = models.IntegerField(validators=[MinValueValidator(1),MaxValueValidator(5)])
+    sheddingamount = models.IntegerField(validators=[MinValueValidator(1),MaxValueValidator(5)])
+    exerciseneeds = models.IntegerField(validators=[MinValueValidator(1),MaxValueValidator(5)])
 
     def_str_(self):
     	return self.name 
