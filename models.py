@@ -28,5 +28,5 @@ class Breed(models.Model):
     sheddingamount = models.IntegerField(validators=[MinValueValidator(1),MaxValueValidator(5)])
     exerciseneeds = models.IntegerField(validators=[MinValueValidator(1),MaxValueValidator(5)])
 
-    def_str_(self):
+    def __str__(self):
     	return self.name 
