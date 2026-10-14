@@ -10,3 +10,8 @@ class BreedSerializer(serializers.ModelSerializer):
     class Meta:
         model = Breed
 	fields = ['name', 'size', 'friendliness', 'trainability', 'sheddingamount', 'exerciseneeds']
+
+    def validate_size(self, value):
+	if value not in: ['TINY', 'SMALL', 'MEDIUM', 'LARGE']
+	    raise serializers.ValidationError('Size must be TINY, SMALL, MEDIUM, LARGE')
+	return value
